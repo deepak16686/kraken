@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  annotations:
+    openshift.io/deployer-pod.completed-at: '2021-08-30 12:23:25 +0000 UTC'
+    openshift.io/deployer-pod.created-at: '2021-08-30 12:23:19 +0000 UTC'
+    openshift.io/deployer-pod.name: webapp-test-1-deploy
+    openshift.io/deployment-config.latest-version: '1'
+    openshift.io/deployment-config.name: webapp-test
+    openshift.io/deployment.phase: Complete
+    openshift.io/deployment.replicas: '1'
+    openshift.io/deployment.status-reason: config change
+    openshift.io/encoded-deployment-config: >
+      {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"webapp-test","namespace":"my-jira-project","selfLink":"/apis/apps.openshift.io/v1/namespaces/my-jira-project/deploymentconfigs/webapp-test","uid":"0cffd1ac-098d-11ec-8cc6-000c296d72b1","resourceVersion":"118320","generation":2,"creationTimestamp":"2021-08-30T12:23:15Z","labels":{"app":"webapp-test"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["webapp-test"],"from":{"kind":"ImageStreamTag","namespace":"my-jira-project","name":"webapp-test:latest"},"lastTriggeredImage":"training/webapp@sha256:06e9c1983bd6d5db5fba376ccd63bfa529e8d02f23d5079b8f74a616308fb11d"}}],"replicas":1,"test":false,"selector":{"app":"webapp-test","deploymentconfig":"webapp-test"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"webapp-test","deploymentconfig":"webapp-test"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"webapp-test","image":"training/webapp@sha256:06e9c1983bd6d5db5fba376ccd63bfa529e8d02f23d5079b8f74a616308fb11d","ports":[{"containerPort":5000,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":1,"observedGeneration":1,"replicas":0,"updatedReplicas":0,"availableReplicas":0,"unavailableReplicas":0,"details":{"message":"config
+      change","causes":[{"type":"ConfigChange"}]},"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2021-08-30T12:23:15Z","lastTransitionTime":"2021-08-30T12:23:15Z","message":"Deployment
+      config does not have minimum availability."}]}}
+  creationTimestamp: '2021-08-30T12:23:19Z'
+  generation: 3
+  labels:
+    app: webapp-test
+    openshift.io/deployment-config.name: webapp-test
+  name: webapp-test-1
+  namespace: my-jira-project
+  ownerReferences:
+    - apiVersion: apps.openshift.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DeploymentConfig
+      name: webapp-test
+      uid: 0cffd1ac-098d-11ec-8cc6-000c296d72b1
+  resourceVersion: '118590'
+  selfLink: /api/v1/namespaces/my-jira-project/replicationcontrollers/webapp-test-1
+  uid: 0f32ce79-098d-11ec-8930-000c296d72b1
+spec:
+  replicas: 6
+  selector:
+    app: webapp-test
+    deployment: webapp-test-1
+    deploymentconfig: webapp-test
+  template:
+    metadata:
+      annotations:
+        openshift.io/deployment-config.latest-version: '1'
+        openshift.io/deployment-config.name: webapp-test
+        openshift.io/deployment.name: webapp-test-1
+        openshift.io/generated-by: OpenShiftWebConsole
+      creationTimestamp: null
+      labels:
+        app: webapp-test
+        deployment: webapp-test-1
+        deploymentconfig: webapp-test
+    spec:
+      containers:
+        - image: >-
+            training/webapp@sha256:06e9c1983bd6d5db5fba376ccd63bfa529e8d02f23d5079b8f74a616308fb11d
+          imagePullPolicy: Always
+          name: webapp-test
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 6
+  fullyLabeledReplicas: 6
+  observedGeneration: 3
+  readyReplicas: 6
+  replicas: 6
