@@ -1,0 +1,282 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  generateName: python-basic-945f95cfc-
+  annotations:
+    k8s.v1.cni.cncf.io/network-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.217.0.63"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.217.0.63"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    openshift.io/scc: restricted
+  resourceVersion: '33408'
+  name: python-basic-945f95cfc-dcpt7
+  uid: 78abfcd2-1516-4f78-94c9-aa1d8e2a7ac4
+  creationTimestamp: '2021-09-01T03:37:10Z'
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2021-09-01T03:37:10Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:generateName': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:deploymentconfig': {}
+            'f:pod-template-hash': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"9b2b63a7-daf3-45ef-8e6c-18226eb75689"}':
+              .: {}
+              'f:apiVersion': {}
+              'f:blockOwnerDeletion': {}
+              'f:controller': {}
+              'f:kind': {}
+              'f:name': {}
+              'f:uid': {}
+        'f:spec':
+          'f:containers':
+            'k:{"name":"python-basic"}':
+              'f:image': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:memory': {}
+              'f:env':
+                .: {}
+                'k:{"name":"PROJECTS_ROOT"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PROJECT_SOURCE"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:ports':
+                .: {}
+                'k:{"containerPort":8081,"protocol":"TCP"}':
+                  .: {}
+                  'f:containerPort': {}
+                  'f:name': {}
+                  'f:protocol': {}
+              'f:name': {}
+          'f:dnsPolicy': {}
+          'f:enableServiceLinks': {}
+          'f:restartPolicy': {}
+          'f:schedulerName': {}
+          'f:securityContext':
+            .: {}
+            'f:fsGroup': {}
+            'f:seLinuxOptions':
+              'f:level': {}
+          'f:terminationGracePeriodSeconds': {}
+    - manager: multus
+      operation: Update
+      apiVersion: v1
+      time: '2021-09-01T03:37:12Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.v1.cni.cncf.io/network-status': {}
+            'f:k8s.v1.cni.cncf.io/networks-status': {}
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2021-09-01T03:37:22Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"10.217.0.63"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+  namespace: my-dev-project1
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: ReplicaSet
+      name: python-basic-945f95cfc
+      uid: 9b2b63a7-daf3-45ef-8e6c-18226eb75689
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app: python-basic
+    deploymentconfig: python-basic
+    pod-template-hash: 945f95cfc
+spec:
+  restartPolicy: Always
+  serviceAccountName: default
+  imagePullSecrets:
+    - name: default-dockercfg-vqjjr
+  priority: 0
+  schedulerName: default-scheduler
+  enableServiceLinks: true
+  terminationGracePeriodSeconds: 30
+  preemptionPolicy: PreemptLowerPriority
+  nodeName: crc-5br8f-master-0
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c25,c10'
+    fsGroup: 1000620000
+  containers:
+    - resources:
+        limits:
+          memory: 1Gi
+        requests:
+          memory: 1Gi
+      terminationMessagePath: /dev/termination-log
+      name: python-basic
+      env:
+        - name: PROJECTS_ROOT
+          value: /projects
+        - name: PROJECT_SOURCE
+          value: /projects
+      securityContext:
+        capabilities:
+          drop:
+            - KILL
+            - MKNOD
+            - SETGID
+            - SETUID
+        runAsUser: 1000620000
+      ports:
+        - name: 8081-tcp
+          containerPort: 8081
+          protocol: TCP
+      imagePullPolicy: Always
+      volumeMounts:
+        - name: kube-api-access-sgb9h
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/my-dev-project1/python-basic@sha256:0a3c6c2233e2e727046250751b8487c8465143f7883b3eaee9a7908dfc13dd91
+  serviceAccount: default
+  volumes:
+    - name: kube-api-access-sgb9h
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+          - configMap:
+              name: openshift-service-ca.crt
+              items:
+                - key: service-ca.crt
+                  path: service-ca.crt
+        defaultMode: 420
+  dnsPolicy: ClusterFirst
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/memory-pressure
+      operator: Exists
+      effect: NoSchedule
+status:
+  phase: Running
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2021-09-01T03:37:10Z'
+    - type: Ready
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2021-09-01T03:37:22Z'
+    - type: ContainersReady
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2021-09-01T03:37:22Z'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2021-09-01T03:37:10Z'
+  hostIP: 192.168.126.11
+  podIP: 10.217.0.63
+  podIPs:
+    - ip: 10.217.0.63
+  startTime: '2021-09-01T03:37:10Z'
+  containerStatuses:
+    - restartCount: 0
+      started: true
+      ready: true
+      name: python-basic
+      state:
+        running:
+          startedAt: '2021-09-01T03:37:21Z'
+      imageID: >-
+        image-registry.openshift-image-registry.svc:5000/my-dev-project1/python-basic@sha256:0a3c6c2233e2e727046250751b8487c8465143f7883b3eaee9a7908dfc13dd91
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/my-dev-project1/python-basic@sha256:0a3c6c2233e2e727046250751b8487c8465143f7883b3eaee9a7908dfc13dd91
+      lastState: {}
+      containerID: 'cri-o://6c12989941263fa43fe881dc8b859d32a18ddae40ae9da35ecf156601f87c569'
+  qosClass: Burstable
+

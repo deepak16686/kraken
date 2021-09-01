@@ -1,0 +1,17 @@
+2021-09-01 00:40:33,764 [INFO] Starting kraken
+2021-09-01 00:40:33,768 [INFO] Initializing client to talk to the Kubernetes cluster
+2021-09-01 00:40:34,190 [INFO] Fetching cluster info
+2021-09-01 00:40:34,394 [INFO] 
+NAME      VERSION   AVAILABLE   PROGRESSING   SINCE   STATUS
+version   4.8.4     True        False         22d     Cluster version is 4.8.4
+Kubernetes control plane is running at https://api.crc.testing:6443
+
+2021-09-01 00:40:34,394 [INFO] Generated a uuid for the run: aac4876c-13eb-4297-9325-496a4090aa45
+2021-09-01 00:40:34,394 [INFO] Daemon mode not enabled, will run through 1 iterations
+
+2021-09-01 00:40:34,394 [INFO] Executing scenarios for iteration 0
+2021-09-01 00:40:34,394 [INFO] Running pod scenarios
+2021-09-01 00:40:37,319 [INFO] Scenario: scenarios/webapp-test1.yaml has been successfully injected!
+2021-09-01 00:40:37,319 [INFO] Waiting for the specified duration: 60
+2021-09-01 00:41:37,362 [INFO] 
+2021-09-01 00:41:37,362 [INFO] Successfully finished running Kraken. UUID for the run: aac4876c-13eb-4297-9325-496a4090aa45. Exiting
