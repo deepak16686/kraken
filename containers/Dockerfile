@@ -2,7 +2,7 @@
 
 FROM quay.io/openshift/origin-tests:latest as origintests
 
-FROM centos:7
+FROM centos:centos8
 
 MAINTAINER Red Hat OpenShift Performance and Scale
 
