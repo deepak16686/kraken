@@ -18,3 +18,4 @@ openshift-client
 python-ipmi
 podman-compose
 docker-compose
+azure-core>=1.38.0 # not directly required, pinned by Snyk to avoid a vulnerability
